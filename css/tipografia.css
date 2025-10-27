@@ -1,4 +1,7 @@
-.link-font {
+.link {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
   font-family: "IBM Plex Mono", Arial, Helvetica, sans-serif;
 }
 
