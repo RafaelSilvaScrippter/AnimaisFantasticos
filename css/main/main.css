@@ -10,6 +10,44 @@
   margin-top: 50px;
 }
 
+.animal-item-conteudo.ativo {
+  display: block;
+}
+
+@keyframes toLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(12px, 0px, 0px);
+  }
+}
+
+@keyframes toTop {
+  from {
+    opacity: 0;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 12px, 0px);
+  }
+}
+
+[data-to-left].animal-item-conteudo.ativo {
+  animation: toLeft 0.8s forwards;
+}
+
+[data-to-top].animal-item-conteudo.ativo {
+  animation: toTop 0.8s forwards;
+}
+
+.animal-item-conteudo {
+  display: none;
+}
+
 @media (max-width: 750px) {
   .main {
     padding-left: 12px;
@@ -38,10 +76,6 @@
 .animal-item-conteudo p {
   margin-top: 22px;
   max-width: 55ch;
-}
-
-.animal-item-conteudo:not(:first-child) {
-  display: none;
 }
 
 .secao-imagens {
