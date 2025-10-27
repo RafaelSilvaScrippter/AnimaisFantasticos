@@ -6,8 +6,23 @@
 }
 
 .titulo-principal {
-  font-family: "PlayFair Displat SC", Georgia;
-  font-size: 3.5rem;
+  font-weight: 400;
+  color: #333;
+  max-width: 4ch;
+  font-family: "Playfair Display SC", Georgia;
+  font-size: 5.5rem;
+}
+
+@media (max-width: 600px) {
+  .titulo-principal {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .titulo-principal {
+    font-size: 3rem;
+  }
 }
 
 .paragrafo-conteudo {
