@@ -24,7 +24,7 @@ dd {
   .faq {
     grid-column: 1 / -1;
     padding: 12px;
-    margin-top: 0px;
+    margin-top: 30px;
   }
 
   .faq-lista {
