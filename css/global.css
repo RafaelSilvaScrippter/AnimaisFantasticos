@@ -18,7 +18,7 @@ img {
 .header {
   grid-column: 3 / -1;
   margin-top: 30px;
-  padding: 22px 24px;
+  padding: 22px 16px;
   background-color: #fb5;
 }
 
