@@ -1,0 +1,42 @@
+.contato {
+  margin-top: 80px;
+  grid-column: 2 / -1;
+}
+
+.contato-conteudo {
+  gap: 40px;
+  display: grid;
+  margin-top: 50px;
+  margin-left: 150px;
+  grid-template-columns: 450px 2fr;
+}
+
+.contato-conteudo ul li {
+  margin: 12px 0px;
+  font-size: 18px;
+  font-family: Helvetica, Arial;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contato-conteudo ul li::before {
+  content: "";
+  background-color: #fb5;
+  width: 30px;
+  height: 8px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .contato {
+    grid-column: 1 / -1;
+    padding: 16px;
+  }
+
+  .contato-conteudo {
+    margin-left: 0px;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+}
