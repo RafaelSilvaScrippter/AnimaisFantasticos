@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.grid-body {
+  display: grid;
+  grid-template-columns: 150px 100px 1fr 2fr;
+}
+
+.header {
+  grid-column: 3 / -1;
+  margin-top: 30px;
+  padding: 22px 24px;
+  background-color: #fb5;
+}
+
+@media (max-width: 600px) {
+  .header {
+    grid-column: 1 / -1;
+  }
+}
+
+.ul-lista-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
