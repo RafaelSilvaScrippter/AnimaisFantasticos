@@ -4,16 +4,15 @@
 }
 
 .contato-conteudo {
-  gap: 40px;
+  gap: 10px;
   display: grid;
   margin-top: 50px;
-  margin-left: 150px;
-  grid-template-columns: 450px 2fr;
+  grid-template-columns: auto 1fr;
 }
 
 .contato-conteudo ul li {
   margin: 12px 0px;
-  font-size: 18px;
+  font-size: 15px;
   font-family: Helvetica, Arial;
   display: flex;
   align-items: center;
