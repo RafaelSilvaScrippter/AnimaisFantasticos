@@ -7,7 +7,9 @@
   gap: 10px;
   display: grid;
   margin-top: 50px;
-  grid-template-columns: auto 1fr;
+  padding-right: 20px;
+  margin-left: 40px;
+  grid-template-columns: auto 2fr;
 }
 
 .contato-conteudo ul li {
