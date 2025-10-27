@@ -1,6 +1,7 @@
 .faq {
   grid-column: 2 / -1;
   margin-top: 90px;
+  padding: 16px;
 }
 
 dt {
@@ -23,7 +24,6 @@ dd {
 @media (max-width: 600px) {
   .faq {
     grid-column: 1 / -1;
-    padding: 12px;
     margin-top: 30px;
   }
 
