@@ -15,7 +15,8 @@ img {
   grid-template-columns: 90px 90px 1fr 2fr;
 }
 
-.header {
+.header,
+footer {
   grid-column: 3 / -1;
   margin-top: 30px;
   padding: 22px 16px;
@@ -23,8 +24,10 @@ img {
 }
 
 @media (max-width: 600px) {
-  .header {
+  .header,
+  footer {
     grid-column: 1 / -1;
+    margin-bottom: 0px !important;
   }
 }
 
@@ -32,4 +35,22 @@ img {
   display: flex;
   align-items: center;
   gap: 22px;
+}
+
+footer {
+  margin-bottom: 20px;
+  margin-top: 100px;
+  padding-left: 90px;
+  font-family: "IBM Plex Mono", Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 450px) {
+  footer {
+    padding-left: 12px;
+    margin-top: 40px;
+  }
+}
+
+footer h2 {
+  font-size: 16px !important;
 }
