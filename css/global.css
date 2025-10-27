@@ -12,7 +12,7 @@ img {
 
 .grid-body {
   display: grid;
-  grid-template-columns: 150px 100px 1fr 2fr;
+  grid-template-columns: 90px 90px 1fr 2fr;
 }
 
 .header {
