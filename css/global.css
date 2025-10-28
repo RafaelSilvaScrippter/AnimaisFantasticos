@@ -67,9 +67,10 @@ footer h2 {
 }
 
 [data-anim-scroll] {
-  opacity: 0;
+  display: none;
 }
 
 [data-anim-scroll].ativo {
+  display: block;
   animation: animLeft 0.8s forwards;
 }
