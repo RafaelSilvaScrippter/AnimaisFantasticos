@@ -9,7 +9,24 @@ dt {
   margin-top: 40px;
 }
 
+@keyframes toLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(15px, 0px, 0px);
+  }
+}
+
+.ativo-dd {
+  animation: toLeft 0.8s forwards;
+  display: block;
+}
+
 dd {
+  display: none;
   padding-left: 52px;
   margin-top: 16px;
   max-width: 75ch;
@@ -19,6 +36,7 @@ dd {
 .faq-lista {
   margin-left: 90px;
   margin-top: 40px;
+  padding-right: 22px;
 }
 
 @media (max-width: 600px) {
