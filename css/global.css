@@ -54,3 +54,22 @@ footer {
 footer h2 {
   font-size: 16px !important;
 }
+
+@keyframes animLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(8px, 0px, 0px);
+  }
+}
+
+[data-anim-scroll] {
+  opacity: 0;
+}
+
+[data-anim-scroll].ativo {
+  animation: animLeft 0.8s forwards;
+}

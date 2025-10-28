@@ -58,7 +58,7 @@
 .sub-titulo {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 12px;
   color: #e54;
   font-size: 18px;
   text-transform: uppercase;
@@ -79,8 +79,8 @@
 }
 
 .secao-imagens {
-  gap: 0px 30px;
   display: grid;
+  gap: 12px;
   grid-template-columns: 300px 1fr;
 }
 
