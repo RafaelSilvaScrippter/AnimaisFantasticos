@@ -3,7 +3,7 @@ function scrollAnimacao() {
 
   function animarScroll() {
     conteudoSecao.forEach((item) => {
-      if (item.getBoundingClientRect().top <= 140) {
+      if (item.getBoundingClientRect().top <= 400) {
         item.classList.add("ativo");
       } else {
         item.classList.remove("ativo");

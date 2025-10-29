@@ -29,7 +29,7 @@
   display: block;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 660px) {
   .contato {
     grid-column: 1 / -1;
     padding: 16px;
