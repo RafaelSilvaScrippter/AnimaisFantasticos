@@ -3,9 +3,11 @@ import scrollSuave from "./scripts/scrollSUave.js";
 import faqClick from "./scripts/faqClick.js";
 import scrollAnimacao from "./scripts/scrollAnimacao.js";
 import modal from "./scripts/modal.js";
+import menuMobile from "./scripts/menuMobile.js";
 
 tabNav();
 scrollSuave();
 faqClick();
 scrollAnimacao();
 modal();
+menuMobile();
