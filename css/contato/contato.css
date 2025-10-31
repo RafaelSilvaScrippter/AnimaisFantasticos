@@ -7,14 +7,12 @@
   gap: 10px;
   display: grid;
   margin-top: 50px;
-  padding-right: 20px;
-  margin-left: 100px;
-  grid-template-columns: 350px 2fr;
+  grid-template-columns: 300px 1fr;
 }
 
 .contato-conteudo ul li {
   margin: 12px 0px;
-  font-size: 15px;
+  font-size: 12px;
   font-family: Helvetica, Arial;
   display: flex;
   align-items: center;
@@ -32,7 +30,7 @@
 @media (max-width: 660px) {
   .contato {
     grid-column: 1 / -1;
-    padding: 16px;
+    padding: 22px;
   }
 
   .contato-conteudo {
