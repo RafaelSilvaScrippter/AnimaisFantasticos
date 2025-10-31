@@ -1,0 +1,17 @@
+.tooltip {
+  position: absolute;
+  padding: 22px;
+  width: 100%;
+  max-width: 30vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #fb5;
+  outline: 3px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-family: "IBM Plex Mono";
+  font-weight: bold;
+  display: none;
+}
+
+.contato {
+  position: relative;
+}

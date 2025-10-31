@@ -12,7 +12,8 @@ img {
 
 .grid-body {
   display: grid;
-  grid-template-columns: 90px 90px 1fr 2fr;
+  overflow-x: hidden;
+  grid-template-columns: 90px 90px 1fr 1fr;
 }
 
 .header,

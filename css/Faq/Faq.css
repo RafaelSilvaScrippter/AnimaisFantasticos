@@ -1,7 +1,6 @@
 .faq {
   grid-column: 2 / -1;
   margin-top: 90px;
-  padding: 16px;
 }
 
 dt {
@@ -16,7 +15,7 @@ dt {
   }
   to {
     opacity: 1;
-    transform: translate3d(15px, 0px, 0px);
+    transform: translate3d(1px, 0px, 0px);
   }
 }
 
@@ -27,16 +26,15 @@ dt {
 
 dd {
   display: none;
-  padding-left: 52px;
+  padding: 0px 32px;
   margin-top: 16px;
-  max-width: 75ch;
+  max-width: 65ch;
   margin-bottom: 22px;
 }
 
 .faq-lista {
-  margin-left: 90px;
   margin-top: 40px;
-  padding-right: 22px;
+  padding-right: 2px;
 }
 
 @media (max-width: 660px) {
