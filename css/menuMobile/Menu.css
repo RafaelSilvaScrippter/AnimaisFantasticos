@@ -61,10 +61,6 @@
   }
 }
 
-.menu-mobile::before {
-  rotate: 0deg;
-}
-
 .menu-mobile.ativo::before {
   animation: rotacionar 0.8s forwards;
 }
