@@ -13,7 +13,7 @@ function toolTip() {
     divToolTip.style.left = `${posicao.x + 10}px`;
 
     return () => {
-      window.removeEventListener("mousemove", postionToolTip);
+      imagemToolTip.removeEventListener("mousemove", postionToolTip);
     };
   }
 
@@ -23,6 +23,9 @@ function toolTip() {
     element.classList.add("tooltip");
     containerContato.appendChild(element);
     divToolTip = element;
+    return () => {
+      imagemToolTip.removeEventListener("mousenter", criarToolTip);
+    };
   }
 
   imagemToolTip.addEventListener("mouseenter", () => {

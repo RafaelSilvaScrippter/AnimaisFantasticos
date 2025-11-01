@@ -22,13 +22,21 @@
       <button>Entrar</button>
     </form>
   </div>
-  <header class="header">
+  <header data-header class="header">
     <div data-comparar data-div-mobile class="div-menu-mobile">
       <button data-btn-menu-mobile class="menu-mobile">Menu</button>
       <nav data-container-menu class="mobile-none">
         <ul class="ul-lista-links">
           <li><a data-link class="link" href="#">Animais</a></li>
-          <li><a class="link" href="#">Sobre</a></li>
+          <li><a data-link-sobre class="link" href="#">Sobre
+            </a>
+            <ul data-lista-dropdown class="dropdown">
+              <li><a href="#">A empresa</a></li>
+              <li><a href="#">Equipe</a></li>
+              <li><a href="#">Sócios</a></li>
+              <li><a href="#">Investidores</a></li>
+            </ul>
+          </li>
           <li><a data-link class="link" href="#">Faq</a></li>
           <li><a data-link class="link" href="#">Contato</a></li>
           <li><a data-abrir-modal class="link" href="#">Login</a></li>

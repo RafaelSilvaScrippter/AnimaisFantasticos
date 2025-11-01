@@ -14,6 +14,7 @@ function menuMobile() {
   });
 
   outsideClick(navMenuMobile, containerPaiMenu, "ativo");
+  outsideClick(btnMenuMobile, containerPaiMenu, "ativo");
 }
 
 export default menuMobile;
