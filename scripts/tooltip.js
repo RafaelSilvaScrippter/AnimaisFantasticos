@@ -1,5 +1,6 @@
-const divToolTip = document.querySelector("[data-tooltip]");
+let divToolTip;
 const imagemToolTip = document.querySelector("[data-image]");
+const containerContato = document.querySelector("[data-container-contato]");
 
 function toolTip() {
   function postionToolTip(event) {
@@ -16,12 +17,24 @@ function toolTip() {
     };
   }
 
+  function criarToolTip() {
+    const element = document.createElement("div");
+    element.innerText = "Endereço proximo ao estacionamento";
+    element.classList.add("tooltip");
+    containerContato.appendChild(element);
+    divToolTip = element;
+  }
+
+  imagemToolTip.addEventListener("mouseenter", () => {
+    criarToolTip();
+  });
+
   imagemToolTip.addEventListener("mousemove", (event) => {
-    divToolTip.style.display = "block";
     postionToolTip(event);
   });
+
   imagemToolTip.addEventListener("mouseleave", () => {
-    divToolTip.style.display = "none";
+    containerContato.removeChild(divToolTip);
   });
 }
 
