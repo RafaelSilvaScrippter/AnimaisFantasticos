@@ -5,6 +5,7 @@
 
 .contato-conteudo {
   gap: 10px;
+  margin-left: 50px;
   display: grid;
   margin-top: 50px;
   grid-template-columns: 300px 1fr;
@@ -30,13 +31,17 @@
 @media (max-width: 660px) {
   .contato {
     grid-column: 1 / -1;
-    padding: 22px;
+    padding: 16px;
   }
 
   .contato-conteudo {
-    margin-left: 0px;
     gap: 10px;
-    margin-right: 0px;
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .contato-conteudo {
+    margin-left: 0px;
   }
 }
