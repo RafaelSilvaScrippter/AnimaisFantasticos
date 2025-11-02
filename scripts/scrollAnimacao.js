@@ -5,7 +5,7 @@ function scrollAnimacao() {
     conteudoSecao.forEach((item) => {
       if (item.getBoundingClientRect().top <= 400) {
         item.classList.add("ativo");
-      } else {
+      } else if (item.classList.contains("ativo")) {
         item.classList.remove("ativo");
       }
     });
