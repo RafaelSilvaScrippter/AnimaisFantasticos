@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "nome": "Lobo",
+    "numeros": 4874
+  },
+  {
+    "id": 1,
+    "nome": "Raposas",
+    "numeros": 5374
+  },
+  {
+    "id": 2,
+    "nome": "Esquilos",
+    "numeros": 12340
+  },
+  {
+    "id": 3,
+    "nome": "Ursos",
+    "numeros": 230
+  }
+]
