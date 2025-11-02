@@ -8,6 +8,7 @@ import toolTip from "./scripts/tooltip.js";
 import dropDownMenu from "./scripts/dropdown.js";
 import initNum from "./scripts/numeros.js";
 import funcionamento from "./scripts/funcionamento.js";
+import Bitcoin from "./scripts/fetcBtc.js";
 
 tabNav();
 scrollSuave();
@@ -19,3 +20,4 @@ toolTip();
 dropDownMenu();
 initNum();
 funcionamento();
+Bitcoin();

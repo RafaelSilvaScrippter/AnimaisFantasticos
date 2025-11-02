@@ -3,24 +3,27 @@ const containerNumeros = document.querySelector("[data-numeros-container]");
 
 function initNum() {
   async function numeros() {
-    const response = await fetch("./json/Animais.json");
-    const dados = await response.json();
-
-    dados.forEach((item, index) => {
-      const total = Number(item.numeros);
-      const incremento = total / 120;
-      dataNumeros[index].innerText = 0;
-      let start = 0;
-      const timer = setInterval(() => {
-        item.numeros = Math.floor(start);
-        start += incremento;
-        dataNumeros[index].innerText = Math.floor(start);
-        if (start > total) {
-          clearInterval();
-          dataNumeros[index].innerText = total;
-        }
-      }, 90 * Math.random());
-    });
+    try {
+      const response = await fetch("./json/Animais.json");
+      const dados = await response.json();
+      dados.forEach((item, index) => {
+        const total = Number(item.numeros);
+        const incremento = total / 120;
+        dataNumeros[index].innerText = 0;
+        let start = 0;
+        const timer = setInterval(() => {
+          item.numeros = Math.floor(start);
+          start += incremento;
+          dataNumeros[index].innerText = Math.floor(start);
+          if (start > total) {
+            clearInterval();
+            dataNumeros[index].innerText = total;
+          }
+        }, 90 * Math.random());
+      });
+    } catch (erro) {
+      console.log("Um erro ocorreu", erro);
+    }
   }
 
   function handleMutation(mutation) {
