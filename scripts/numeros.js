@@ -2,18 +2,22 @@ const dataNumeros = document.querySelectorAll("[data-numero]");
 const containerNumeros = document.querySelector("[data-numeros-container]");
 
 function initNum() {
-  function numeros() {
-    dataNumeros.forEach((item, index) => {
-      const total = Number(item.innerText);
-      const incremento = total / 120;
+  async function numeros() {
+    const response = await fetch("./json/Animais.json");
+    const dados = await response.json();
 
+    dados.forEach((item, index) => {
+      const total = Number(item.numeros);
+      const incremento = total / 120;
+      dataNumeros[index].innerText = 0;
       let start = 0;
       const timer = setInterval(() => {
-        item.innerText = Math.floor(start);
+        item.numeros = Math.floor(start);
         start += incremento;
+        dataNumeros[index].innerText = Math.floor(start);
         if (start > total) {
-          item.innerText = total;
           clearInterval();
+          dataNumeros[index].innerText = total;
         }
       }, 90 * Math.random());
     });
