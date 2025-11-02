@@ -7,6 +7,7 @@ import menuMobile from "./scripts/menuMobile.js";
 import toolTip from "./scripts/tooltip.js";
 import dropDownMenu from "./scripts/dropdown.js";
 import initNum from "./scripts/numeros.js";
+import funcionamento from "./scripts/funcionamento.js";
 
 tabNav();
 scrollSuave();
@@ -17,3 +18,4 @@ menuMobile();
 toolTip();
 dropDownMenu();
 initNum();
+funcionamento();

@@ -45,3 +45,23 @@
     margin-left: 0px;
   }
 }
+
+.horario-funcionamento {
+  display: flex;
+  align-items: center;
+}
+
+.horario-funcionamento::after {
+  content: "";
+  background-color: red;
+  border: 2px solid #000;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+  margin-left: -10px;
+}
+
+.horario-funcionamento.aberto::after {
+  background-color: green;
+}
