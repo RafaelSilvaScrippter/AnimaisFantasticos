@@ -6,6 +6,7 @@ import modal from "./scripts/modal.js";
 import menuMobile from "./scripts/menuMobile.js";
 import toolTip from "./scripts/tooltip.js";
 import dropDownMenu from "./scripts/dropdown.js";
+import initNum from "./scripts/numeros.js";
 
 tabNav();
 scrollSuave();
@@ -15,3 +16,4 @@ modal();
 menuMobile();
 toolTip();
 dropDownMenu();
+initNum();
