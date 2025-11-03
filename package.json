@@ -1,0 +1,26 @@
+{
+  "name": "animaisfantasticos",
+  "version": "1.0.0",
+  "description": "Projeto do animais",
+  "homepage": "https://github.com/RafaelSilvaScrippter/AnimaisFantasticos#readme",
+  "bugs": {
+    "url": "https://github.com/RafaelSilvaScrippter/AnimaisFantasticos/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelSilvaScrippter/AnimaisFantasticos.git"
+  },
+  "license": "ISC",
+  "author": "Rafa",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch ./script.js -o ./main.js",
+    "build": "webpack --mode production ./script.js -o ./main.js"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.0",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

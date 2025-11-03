@@ -1,7 +1,6 @@
 const listaDropDown = document.querySelector("[data-lista-dropdown]");
 const linkSobreDropdown = document.querySelector("[data-link-sobre]");
 let clickNoLink = false;
-let clickWindow = false;
 const dataHeader = document.querySelector("[data-header]");
 
 function dropDownMenu() {

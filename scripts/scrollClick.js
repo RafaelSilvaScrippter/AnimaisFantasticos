@@ -1,7 +1,7 @@
 const linksNavegacao = document.querySelectorAll("[data-link]");
 const conteudoLink = document.querySelectorAll("[data-conteudo]");
 
-function scrollSuave() {
+function scrollClick() {
   function handleClick(event, index) {
     event.preventDefault();
     const distanciaScroll = conteudoLink[index].offsetTop;
@@ -19,4 +19,4 @@ function scrollSuave() {
   });
 }
 
-export default scrollSuave;
+export default scrollClick;
