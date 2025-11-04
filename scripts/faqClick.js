@@ -1,16 +1,23 @@
-function faqClick() {
-  const dtTitulo = document.querySelectorAll("dt");
-  const ddDescricao = document.querySelectorAll("dd");
-
-  function ativarDd(index) {
-    ddDescricao[index].classList.toggle("ativo-dd");
+class initFaqClick {
+  constructor(dtTitulo, ddDescricao) {
+    this.dtTitulo = document.querySelectorAll(dtTitulo);
+    this.ddDescricao = document.querySelectorAll(ddDescricao);
   }
 
-  dtTitulo.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      ativarDd(index);
+  clickDt() {
+    this.dtTitulo.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        this.ativarDd(index);
+      });
     });
-  });
+  }
+  ativarDd(index) {
+    this.ddDescricao[index].classList.toggle("ativo-dd");
+  }
+
+  init() {
+    this.clickDt();
+  }
 }
 
-export default faqClick;
+export default initFaqClick;
