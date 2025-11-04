@@ -1,26 +1,43 @@
-const dataSemana = document
-  .querySelector("[data-semana")
-  .dataset.semana.split(",")
-  .map(Number);
+class funcionamento {
+  constructor(dataSemana, conteudoFuncionamento, horaSemana) {
+    this.dataSemana = document.querySelector(dataSemana);
+    this.conteudoFuncionamento = document.querySelector(conteudoFuncionamento);
+    this.horaSemana = document.querySelector(horaSemana);
+    this.horaAtual;
+    this.horario;
+    this.data;
+    this.verificarHorario;
+    this.horaSemana;
+  }
 
-const conteudoFuncionamento = document.querySelector(".horario-funcionamento");
+  addClasses() {
+    if (this.verificarHorario != -1 && this.horario) {
+      this.conteudoFuncionamento.classList.add("aberto");
+    } else {
+      this.conteudoFuncionamento.classList.remove("aberto");
+    }
+  }
 
-const horaSemana = document
-  .querySelector("[data-hora]")
-  .dataset.hora.split(",")
-  .map(Number);
+  verificarDia() {
+    const dataAGora = new Date();
+    this.data = this.horaSemana.dataset.semana.split(",").map(Number);
+    this.verificarHorario = this.data.indexOf(dataAGora.getDay());
+  }
 
-const data = new Date();
-const diaSemana = data.getDay();
-const horaAtual = data.getHours();
+  iniciarHorario() {
+    const data = new Date();
+    this.horaSemana = this.dataSemana.dataset.hora.split(",").map(Number);
+    this.horaAtual = data.getHours();
+    this.horario =
+      this.horaAtual >= this.horaSemana[0] &&
+      this.horaAtual < this.horaSemana[1];
+  }
 
-const verificaHora = horaAtual > horaSemana[0] && horaAtual < horaSemana[1];
-
-if (dataSemana.indexOf(diaSemana) !== -1 && verificaHora)
-  conteudoFuncionamento.classList.add("aberto");
-else {
-  conteudoFuncionamento.classList.remove("aberto");
+  init() {
+    this.verificarDia();
+    this.iniciarHorario();
+    this.addClasses();
+  }
 }
-function funcionamento() {}
 
 export default funcionamento;
