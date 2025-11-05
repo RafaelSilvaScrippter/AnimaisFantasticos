@@ -1,44 +1,58 @@
-let divToolTip;
-const imagemToolTip = document.querySelector("[data-image]");
-const containerContato = document.querySelector("[data-container-contato]");
+class toolTip {
+  constructor(imagemToolTip, containerContato) {
+    this.imagemToolTip = document.querySelector(imagemToolTip);
+    this.containerContato = document.querySelector(containerContato);
+    this.divToolTip;
+    this.posicao;
+  }
 
-function toolTip() {
-  function postionToolTip(event) {
-    const posicao = {
+  pegarPosicao(event) {
+    this.posicao = {
       x: event.layerX,
       y: event.layerY,
     };
+  }
 
-    divToolTip.style.top = `${posicao.y}px`;
-    divToolTip.style.left = `${posicao.x + 10}px`;
+  postionToolTip(event) {
+    this.divToolTip.style.top = `${this.posicao.y}px`;
+    this.divToolTip.style.left = `${this.posicao.x + 10}px`;
 
     return () => {
-      imagemToolTip.removeEventListener("mousemove", postionToolTip);
+      this.imagemToolTip.removeEventListener("mousemove", this.postionToolTip);
     };
   }
 
-  function criarToolTip() {
+  criarToolTip() {
     const element = document.createElement("div");
     element.innerText = "Endereço proximo ao estacionamento";
     element.classList.add("tooltip");
-    containerContato.appendChild(element);
-    divToolTip = element;
+    this.containerContato.appendChild(element);
+    this.divToolTip = element;
     return () => {
-      imagemToolTip.removeEventListener("mousenter", criarToolTip);
+      this.imagemToolTip.removeEventListener("mousenter", this.criarToolTip);
     };
   }
 
-  imagemToolTip.addEventListener("mouseenter", () => {
-    criarToolTip();
-  });
+  eventoMouse() {
+    this.imagemToolTip.addEventListener("mouseenter", () => {
+      this.criarToolTip();
+    });
 
-  imagemToolTip.addEventListener("mousemove", (event) => {
-    postionToolTip(event);
-  });
+    this.imagemToolTip.addEventListener("mousemove", (event) => {
+      this.postionToolTip(event);
+    });
+    this.imagemToolTip.addEventListener("mousemove", (event) => {
+      this.pegarPosicao(event);
+    });
 
-  imagemToolTip.addEventListener("mouseleave", () => {
-    containerContato.removeChild(divToolTip);
-  });
+    this.imagemToolTip.addEventListener("mouseleave", () => {
+      this.containerContato.removeChild(this.divToolTip);
+    });
+  }
+
+  init() {
+    this.eventoMouse();
+  }
 }
 
 export default toolTip;

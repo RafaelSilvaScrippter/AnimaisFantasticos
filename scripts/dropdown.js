@@ -1,38 +1,51 @@
-const listaDropDown = document.querySelector("[data-lista-dropdown]");
-const linkSobreDropdown = document.querySelector("[data-link-sobre]");
-let clickNoLink = false;
-const dataHeader = document.querySelector("[data-header]");
-
-function dropDownMenu() {
-  function abrirDropDown() {
-    listaDropDown.classList.add("ativo");
+class dropDown {
+  constructor(listaDropDown, linkSobreDropdown, dataHeader) {
+    this.listaDropDown = document.querySelector(listaDropDown);
+    this.linkSobreDropdown = document.querySelector(linkSobreDropdown);
+    this.dataHeader = document.querySelector(dataHeader);
+    this.clickNoLink = false;
+    this.abrirDropDown = this.abrirDropDown.bind(this);
+    this.fecharDropDown = this.fecharDropDown.bind(this);
+    this.windowEvents = this.windowEvents.bind(this);
   }
 
-  function fecharDropDown() {
-    if (clickNoLink == false) listaDropDown.classList.remove("ativo");
+  fecharDropDown() {
+    if (this.clickNoLink == false) this.listaDropDown.classList.remove("ativo");
   }
 
-  window.addEventListener("click", (event) => {
-    if (
-      event.target !== linkSobreDropdown &&
-      listaDropDown.contains(event.target) == false
-    ) {
-      listaDropDown.classList.remove("ativo");
-      clickNoLink = false;
-    } else {
-      listaDropDown.classList.add("ativo");
+  abrirDropDown() {
+    this.listaDropDown.classList.add("ativo");
+  }
+
+  eventos() {
+    if (this.clickNoLink == false) {
+      this.linkSobreDropdown.addEventListener("mouseenter", this.abrirDropDown);
+      this.dataHeader.addEventListener("mouseleave", this.fecharDropDown);
+      this.listaDropDown.addEventListener("mouseleave", this.fecharDropDown);
     }
-  });
+    this.linkSobreDropdown.addEventListener("click", () => {
+      this.clickNoLink = true;
+    });
+  }
 
-  linkSobreDropdown.addEventListener("click", () => {
-    clickNoLink = true;
-  });
+  windowEvents() {
+    window.addEventListener("click", (event) => {
+      if (
+        event.target !== this.linkSobreDropdown &&
+        this.listaDropDown.contains(event.target) == false
+      ) {
+        this.listaDropDown.classList.remove("ativo");
+        this.clickNoLink = false;
+      } else {
+        this.listaDropDown.classList.add("ativo");
+      }
+    });
+  }
 
-  if (clickNoLink == false) {
-    linkSobreDropdown.addEventListener("mouseenter", abrirDropDown);
-    dataHeader.addEventListener("mouseleave", fecharDropDown);
-    listaDropDown.addEventListener("mouseleave", fecharDropDown);
+  init() {
+    this.eventos();
+    this.windowEvents();
   }
 }
 
-export default dropDownMenu;
+export default dropDown;

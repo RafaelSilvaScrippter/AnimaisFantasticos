@@ -1,22 +1,29 @@
-const linksNavegacao = document.querySelectorAll("[data-link]");
-const conteudoLink = document.querySelectorAll("[data-conteudo]");
+class scrollSuave {
+  constructor(linksNavegacao, conteudoLink) {
+    this.linksNavegacao = document.querySelectorAll(linksNavegacao);
+    this.conteudoLink = document.querySelectorAll(conteudoLink);
+  }
 
-function scrollClick() {
-  function handleClick(event, index) {
+  handleClick(event, index) {
     event.preventDefault();
-    const distanciaScroll = conteudoLink[index].offsetTop;
-    console.log(distanciaScroll);
+    const distanciaScroll = this.conteudoLink[index].offsetTop;
     window.scrollTo({
       top: distanciaScroll,
       behavior: "smooth",
     });
   }
 
-  linksNavegacao.forEach((item, index) => {
-    item.addEventListener("click", (event) => {
-      handleClick(event, index);
+  clickLink() {
+    this.linksNavegacao.forEach((item, index) => {
+      item.addEventListener("click", (event) => {
+        this.handleClick(event, index);
+      });
     });
-  });
+  }
+
+  init() {
+    this.clickLink();
+  }
 }
 
-export default scrollClick;
+export default scrollSuave;

@@ -1,21 +1,29 @@
-const imgTab = document.querySelectorAll("[data-img-tab]");
-const conteudoTabNav = document.querySelectorAll("[data-tab-conteudo]");
+class NavTab {
+  constructor(imgTab, conteudoTabNav) {
+    this.imgTab = document.querySelectorAll(imgTab);
+    this.conteudoTabNav = document.querySelectorAll(conteudoTabNav);
+  }
 
-function navegacaoPorTab() {
-  function navPorTab(item, index) {
+  navPorTab(item, index) {
     if (index !== undefined) {
-      conteudoTabNav.forEach((item) => {
+      this.conteudoTabNav.forEach((item) => {
         item.classList.remove("ativo");
       });
-      conteudoTabNav[index].classList.add("ativo");
+      this.conteudoTabNav[index].classList.add("ativo");
     }
   }
 
-  imgTab.forEach((itemImg, index) => {
-    itemImg.addEventListener("click", () => {
-      navPorTab(itemImg, index);
+  clickImg() {
+    this.imgTab.forEach((itemImg, index) => {
+      itemImg.addEventListener("click", () => {
+        this.navPorTab(itemImg, index);
+      });
     });
-  });
+  }
+
+  init() {
+    this.clickImg();
+  }
 }
 
-export default navegacaoPorTab;
+export default NavTab;

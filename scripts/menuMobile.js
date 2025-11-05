@@ -1,20 +1,29 @@
 import outsideClick from "./outsideClick.js";
-const btnMenuMobile = document.querySelector("[data-btn-menu-mobile]");
-const navMenuMobile = document.querySelector("[data-container-menu]");
-const containerPaiMenu = document.querySelector("[data-comparar]");
 
-function menuMobile() {
-  function abrirMenu() {
-    navMenuMobile.classList.toggle("ativo");
-    btnMenuMobile.classList.toggle("ativo");
+class menuMobile {
+  constructor(btnMenuMobile, navMenuMobile, containerPaiMenu) {
+    this.btnMenuMobile = document.querySelector(btnMenuMobile);
+    this.navMenuMobile = document.querySelector(navMenuMobile);
+    this.containerPaiMenu = document.querySelector(containerPaiMenu);
+    this.clickMenuMobile = this.clickMenuMobile.bind(this);
   }
 
-  btnMenuMobile.addEventListener("click", () => {
-    abrirMenu();
-  });
+  abrir(menu) {
+    this.navMenuMobile.classList.toggle("ativo");
+    this.btnMenuMobile.classList.toggle("ativo");
+  }
 
-  outsideClick(navMenuMobile, containerPaiMenu, "ativo");
-  outsideClick(btnMenuMobile, containerPaiMenu, "ativo");
+  clickMenuMobile() {
+    this.btnMenuMobile.addEventListener("click", () => {
+      this.abrir();
+    });
+  }
+
+  init() {
+    this.clickMenuMobile();
+    new outsideClick(this.navMenuMobile, this.containerPaiMenu, "ativo").init();
+    new outsideClick(this.btnMenuMobile, this.containerPaiMenu, "ativo").init();
+  }
 }
 
 export default menuMobile;
