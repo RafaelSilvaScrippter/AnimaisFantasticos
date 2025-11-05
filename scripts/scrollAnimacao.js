@@ -1,17 +1,30 @@
-function scrollAnimacao() {
-  const conteudoSecao = document.querySelectorAll("[data-anim-scroll]");
+class scrollAnimacao {
+  constructor(conteudoSecao) {
+    this.conteudoSecao = document.querySelectorAll(conteudoSecao);
+    this.distancia;
+    this.pegarDistancia = this.pegarDistancia.bind(this);
+    this.containerSecao;
+  }
 
-  function animarScroll() {
-    conteudoSecao.forEach((item) => {
-      if (item.getBoundingClientRect().top <= 400) {
-        item.classList.add("ativo");
-      } else if (item.classList.contains("ativo")) {
-        item.classList.remove("ativo");
-      }
+  pegarDistancia() {
+    this.conteudoSecao.forEach((item) => {
+      this.distancia = item.getBoundingClientRect().top;
+      this.containerSecao = item;
+      this.adicionarClasse();
     });
   }
 
-  window.addEventListener("scroll", animarScroll);
+  adicionarClasse() {
+    if (this.distancia <= 400) {
+      this.containerSecao.classList.add("ativo");
+    } else if (this.containerSecao.classList.contains("ativo")) {
+      this.containerSecao.classList.remove("ativo");
+    }
+  }
+
+  init() {
+    window.addEventListener("scroll", this.pegarDistancia);
+  }
 }
 
 export default scrollAnimacao;

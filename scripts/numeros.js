@@ -1,41 +1,59 @@
 const dataNumeros = document.querySelectorAll("[data-numero]");
 const containerNumeros = document.querySelector("[data-numeros-container]");
-
-function initNum() {
-  async function numeros() {
-    try {
-      const response = await fetch("./json/Animais.json");
-      const dados = await response.json();
-      dados.forEach((item, index) => {
-        const total = Number(item.numeros);
-        const incremento = total / 120;
-        dataNumeros[index].innerText = 0;
-        let start = 0;
-        const timer = setInterval(() => {
-          item.numeros = Math.floor(start);
-          start += incremento;
-          dataNumeros[index].innerText = Math.floor(start);
-          if (start > total) {
-            clearInterval();
-            dataNumeros[index].innerText = total;
-          }
-        }, 90 * Math.random());
-      });
-    } catch (erro) {
-      console.log("Um erro ocorreu", erro);
-    }
+class AnimNumeros {
+  constructor(dataNumeros, containerNumeros) {
+    this.dataNumeros = document.querySelectorAll(dataNumeros);
+    this.containerNumeros = document.querySelector(containerNumeros);
+    this.Animar = this.Animar.bind(this);
+    this.handleMutation = this.handleMutation.bind(this);
   }
 
-  function handleMutation(mutation) {
+  async fetchNumeros() {
+    const response = await fetch("./json/Animais.json");
+    const dados = await response.json();
+    dados.forEach(({ numeros }, index) => {
+      this.dataNumeros[index].innerText = numeros;
+    });
+    this.Animar = this.Animar.bind(this);
+    this.handleMutation = this.handleMutation.bind(this);
+  }
+
+  Animar() {
+    this.dataNumeros.forEach((item, index) => {
+      let start = 0;
+      const total = Number(item.innerText);
+
+      const incremento = total / 120;
+      this.dataNumeros[index].innerText = 0;
+      const timer = setInterval(() => {
+        start += incremento;
+        item.innerText = Math.floor(start);
+        if (start >= total) {
+          item.innerText = total;
+          clearInterval(timer);
+        }
+      }, 90 * Math.random());
+    });
+  }
+
+  handleMutation(mutation) {
     if (mutation[0].target.classList.contains("ativo")) {
-      numeros();
-      observer.disconnect();
+      this.Animar();
+      this.observer.disconnect();
     }
   }
 
-  const observer = new MutationObserver(handleMutation);
-  observer.observe(containerNumeros, {
-    attributes: true,
-  });
+  observador() {
+    this.observer = new MutationObserver(this.handleMutation);
+    this.observer.observe(this.containerNumeros, {
+      attributes: true,
+    });
+  }
+
+  async init() {
+    await this.fetchNumeros();
+    this.observador();
+  }
 }
-export default initNum;
+
+export default AnimNumeros;
