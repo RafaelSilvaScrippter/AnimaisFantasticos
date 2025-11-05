@@ -1,17 +1,28 @@
-function outsideClick(elemento, comparar, classe) {
-  function clicqueFora(event) {
+class outsideClick {
+  constructor(elemento, comparar) {
+    this.elemento = elemento;
+    this.comparar = comparar;
+  }
+
+  clicqueFora(event) {
     if (
-      !!comparar.contains(event.target) &&
-      elemento.classList.contains("ativo")
+      !!this.comparar.contains(event.target) &&
+      this.elemento.classList.contains("ativo")
     ) {
     } else {
-      elemento.classList.remove("ativo");
+      this.elemento.classList.remove("ativo");
     }
   }
 
-  window.addEventListener("click", (event) => {
-    clicqueFora(event);
-  });
+  windowClick() {
+    window.addEventListener("click", (event) => {
+      this.clicqueFora(event);
+    });
+  }
+
+  init() {
+    this.windowClick();
+  }
 }
 
 export default outsideClick;
